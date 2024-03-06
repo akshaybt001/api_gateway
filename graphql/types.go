@@ -210,7 +210,7 @@ var RootQuery = graphql.NewObject(
 			"GetAllAdmins": &graphql.Field{
 				Type: graphql.NewList(UserType),
 				Resolve: middleware.SupAdminMiddleware(func(p graphql.ResolveParams) (interface{}, error) {
-					admins, err := UsersConn.GetAllAdmins(context.Background(), &pb.NoParam{})
+					admins, err := UsersConn.GetAllAdmins(context.Background(), &pb.NoPara{})
 					if err != nil {
 						return nil, err
 					}
@@ -231,7 +231,7 @@ var RootQuery = graphql.NewObject(
 			"GetAllUser": &graphql.Field{
 				Type: graphql.NewList(UserType),
 				Resolve: middleware.AdminMiddleware(func(p graphql.ResolveParams) (interface{}, error) {
-					users, err := UsersConn.GetAllUsers(context.Background(), &pb.NoParam{})
+					users, err := UsersConn.GetAllUsers(context.Background(), &pb.NoPara{})
 					if err != nil {
 						return nil, err
 					}

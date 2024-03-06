@@ -4,6 +4,8 @@ github.com/akshaybt001/proto_files v0.0.0-20240305043208-0af7d4ae1623 h1:5nxcP5P
 github.com/akshaybt001/proto_files v0.0.0-20240305043208-0af7d4ae1623/go.mod h1:hKsFgg+9sA8MFcQdEdbpHpr6Ae8x9rcFlIJ+O3MDnzM=
 github.com/akshaybt001/proto_files v0.0.0-20240305071241-8f4ea124e23b h1:PfKstklyw3oVI32HRcvpUBiMWHHNDhNwXR/kLLfYY/I=
 github.com/akshaybt001/proto_files v0.0.0-20240305071241-8f4ea124e23b/go.mod h1:hKsFgg+9sA8MFcQdEdbpHpr6Ae8x9rcFlIJ+O3MDnzM=
+github.com/akshaybt001/proto_files v0.0.0-20240306050951-d56eeaddf7e7 h1:2hmeScL2xN293L1Zyh3MJic0JQ6rWq1w9gU+LhiAyx8=
+github.com/akshaybt001/proto_files v0.0.0-20240306050951-d56eeaddf7e7/go.mod h1:hKsFgg+9sA8MFcQdEdbpHpr6Ae8x9rcFlIJ+O3MDnzM=
 github.com/golang-jwt/jwt v3.2.2+incompatible h1:IfV12K8xAKAnZqdXVzCZ+TOjboZ2keLg81eXfW3O+oY=
 github.com/golang-jwt/jwt v3.2.2+incompatible/go.mod h1:8pz2t5EyA70fFQQSrl6XZXzqecmYZeUEB8OUGHkxJ+I=
 github.com/golang/protobuf v1.5.0/go.mod h1:FsONVRAS9T7sI+LIUmWTfcYkHO4aIWwzhcaSAoJOfIk=
