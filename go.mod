@@ -5,7 +5,8 @@ go 1.21.0
 require google.golang.org/grpc v1.62.0
 
 require (
-	github.com/akshaybt001/proto_files v0.0.0-20240304050236-3fbc1b5ff564
+	github.com/akshaybt001/proto_files v0.0.0-20240305071241-8f4ea124e23b
+	github.com/golang-jwt/jwt v3.2.2+incompatible
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/graphql-go/graphql v0.8.1
 	github.com/graphql-go/handler v0.2.3
