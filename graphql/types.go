@@ -298,11 +298,16 @@ var Mutation = graphql.NewObject(
 				},
 				Resolve: func(p graphql.ResolveParams) (interface{}, error) {
 					id, _ := strconv.Atoi(p.Args["id"].(string))
-					return ProductsConn.UpdateStock(context.Background(), &pb.UpdateStockRequest{
+					res, err := ProductsConn.UpdateStock(context.Background(), &pb.UpdateStockRequest{
 						Id:       uint32(id),
 						Quantity: int32(p.Args["stock"].(int)),
 						Increase: p.Args["increase"].(bool),
 					})
+					if err != nil {
+						return nil, err
+					}
+					fmt.Println(res)
+					return res, nil
 				},
 			},
 			"UserSignUp": &graphql.Field{

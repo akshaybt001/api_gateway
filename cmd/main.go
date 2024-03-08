@@ -7,6 +7,7 @@ import (
 	"os"
 
 	graph "github.com/akshaybt001/api_gateway/graphql"
+	"github.com/akshaybt001/api_gateway/middleware"
 	"github.com/akshaybt001/proto_files/pb"
 	"github.com/graphql-go/handler"
 	"github.com/joho/godotenv"
@@ -19,8 +20,8 @@ func main() {
 		log.Println(err.Error())
 	}
 
-	userConn,err:=grpc.Dial("localhost:8082",grpc.WithInsecure())
-	if err!=nil{
+	userConn, err := grpc.Dial("localhost:8082", grpc.WithInsecure())
+	if err != nil {
 		log.Println(err.Error())
 	}
 
@@ -29,14 +30,15 @@ func main() {
 		userConn.Close()
 	}()
 	productRes := pb.NewProductServiceClient(productConn)
-	userRes:=pb.NewUserServiceClient(userConn)
+	userRes := pb.NewUserServiceClient(userConn)
 
 	if err := godotenv.Load("../.env"); err != nil {
 		log.Fatalf(err.Error())
 	}
 	secretString := os.Getenv("SECRET")
+	middleware.InitMiddlewareSecret(secretString)
 
-	graph.Initialize(productRes,userRes)
+	graph.Initialize(productRes, userRes)
 	graph.RetrieveSercet(secretString)
 
 	h := handler.New(&handler.Config{
@@ -57,7 +59,7 @@ func main() {
 
 	})
 
-	log.Println("listening on port : 8080 of api gateway")
+	log.Println("listening on port : 8081 of api gateway")
 
 	http.ListenAndServe(":8081", nil)
 

@@ -14,7 +14,7 @@ type Payload struct {
 	jwt.StandardClaims
 }
 
-func GenerateJwt(userId uint, isAdmin bool, isSuAdmin bool, secret []byte) (string, error) {
+func GenerateJwt(userId uint, isAdmin bool, isSuAdmin bool, Secret []byte) (string, error) {
 
 	expiresAt := time.Now().Add(48 * time.Hour)
 
@@ -26,9 +26,9 @@ func GenerateJwt(userId uint, isAdmin bool, isSuAdmin bool, secret []byte) (stri
 			ExpiresAt: expiresAt.Unix(),
 		},
 	}
-	token := jwt.NewWithClaims(jwt.SigningMethodES256, jwtclaims)
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwtclaims)
 
-	tokenString, err := token.SignedString(secret)
+	tokenString, err := token.SignedString(Secret)
 
 	if err != nil {
 		return "", err
@@ -39,7 +39,7 @@ func GenerateJwt(userId uint, isAdmin bool, isSuAdmin bool, secret []byte) (stri
 
 func ValidateToken(tokenString string, secret []byte) (map[string]interface{}, error) {
 	token, err := jwt.ParseWithClaims(tokenString, &Payload{}, func(t *jwt.Token) (interface{}, error) {
-		if t.Method != jwt.SigningMethodES256 {
+		if t.Method != jwt.SigningMethodHS256 {
 			return nil, fmt.Errorf("invalid token")
 		}
 
